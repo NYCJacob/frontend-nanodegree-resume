@@ -9,7 +9,8 @@ var bio = {
         "mobile" : "927-555-0208",
         "email" : "jacob@jbsherman.com",
         "twitter" : "@JSherman_Esq",
-        "github"  : "github.com/NYCJacob"
+        "github"  : "github.com/NYCJacob",
+        "location" : "New York"
     },
     "skills" : ["JavaScript", "PHP/MySQL", "Linux Systems Administration"],
     "welcome" : "Let me handle the matrix and free your mind to do other stuff!",
@@ -172,6 +173,9 @@ if (bio.skills.length !== 0){
         $("#skills").append(skillFormatted);
     }
 }
+
+
+$('#mapDiv').append(googleMap);
 
 $(document).click(function(loc) {
     // your code goes here

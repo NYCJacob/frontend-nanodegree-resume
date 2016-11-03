@@ -82,49 +82,82 @@ var work = {
     ]
 }
 
-for (job in work.jobs){
-    $("#workExperience").append(HTMLworkStart);
-    var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-    var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-    var formattedEmployerTitle = formattedEmployer + formattedTitle;
-    $(".work-entry:last").append(formattedEmployerTitle);
-
-    var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-    $(".work-entry:last").append(formattedWorkDates);
-}
-
-
 var projects = {
     "projects" : [
         {
             "title"  :  "Interactive Google Map",
             "dates"  :  "2014",
             "description"  :  "Created an interactive game using Google Maps, JavaScript and PHP/MySQL as my final project for Harvard’s Edx Introduction to Computer Science course",
-            "imageURL"  : "https://github.com/NYCJacob/pset8-interactive-map"
+            "imageURL"  : ["https://github.com/NYCJacob/pset8-interactive-map"]
         },
         {
             "title" : "Mariatemildagonzalezesq.com and nyrsccasolo.com",
             "dates"  : "2013",
             "description"  : "Created fully responsive websites using Bootstrap and custom JavaScript based on designer’s mockup.",
-            "imageURL"   : "http://Mariatemildagonzalezesq.com and http://nyrsccasolo.com"
+            "imageURL"   : ["http://Mariatemildagonzalezesq.com", "http://nyrsccasolo.com"]
         },
         {
             "title"  :  "webesq.net",
             "dates"  : "2013",
             "description"  : "Developed website that produces legal documents for an uncontested divorce in New York City.  " +
-                    "Implemented client-side and server side verification using Javascript and PHP/MySQL code to ensure the user files the " +
-                    "correct documents and produces PDF files ready for court submission.",
-            "imageURL"  : "http://www.webesq.net"
+            "Implemented client-side and server side verification using Javascript and PHP/MySQL code to ensure the user files the " +
+            "correct documents and produces PDF files ready for court submission.",
+            "imageURL"  : ["http://www.webesq.net"]
         },
         {
             "title"  : "ethoshopper.com",
             "dates"  :  "2009 - 2010",
             "description"  :  "Developed OSCommerce/PHP based website selling artisan ceramics from South America. " +
-                            "The website is no longer available.",
-            "imageURL"  : "https://web.archive.org/web/20110817085349/http://www.ethoshopper.com/"
+            "The website is no longer available.",
+            "imageURL"  : ["https://web.archive.org/web/20110817085349/http://www.ethoshopper.com/"]
         }
     ]
 }
+
+projects.display = function(){
+    for (project in projects.projects){
+        $("#projects").append(HTMLprojectStart);
+        var formattedTitle = HTMLprojectTitle.replace('%data%', projects.projects[project].title);
+        $(".project-entry:last").append(formattedTitle);
+
+        var formattedDates = HTMLprojectDates.replace('%data%', projects.projects[project].dates);
+        $(".project-entry:last").append(formattedDates);
+
+        var formattedDesc = HTMLprojectDescription.replace('%data%', projects.projects[project].description);
+        $(".project-entry:last").append(formattedDesc);
+
+        if (projects.projects[project].imageURL.length > 0) {
+            for (image in projects.projects[project].imageURL){
+                var formattedImages = HTMLprojectImage.replace('%data%',projects.projects[project].imageURL[image]);
+                $(".project-entry:last").append(formattedImages);
+            }
+        }
+
+    }
+}
+
+projects.display();
+
+function displayWork() {
+    for (job in work.jobs){
+        $("#workExperience").append(HTMLworkStart);
+        var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+        var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+        var formattedEmployerTitle = formattedEmployer + formattedTitle;
+        $(".work-entry:last").append(formattedEmployerTitle);
+
+        var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+        $(".work-entry:last").append(formattedWorkDates);
+
+        var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+        $(".work-entry:last").append(formattedLocation);
+
+        var formattedDesc = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+        $(".work-entry:last").append(formattedDesc);
+    }
+}
+
+displayWork();
 
 
 var  FormattedheaderName = HTMLheaderName.replace('%data%', bio.name);
@@ -139,3 +172,10 @@ if (bio.skills.length !== 0){
         $("#skills").append(skillFormatted);
     }
 }
+
+$(document).click(function(loc) {
+    // your code goes here
+    logClicks(loc.pageX, loc.pageY);
+});
+
+

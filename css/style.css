@@ -88,7 +88,7 @@ p {
 a {
   color: #1199c3;
   text-decoration: none;
-  margin-top: 10px;
+  margin-top: 10px;       /*originally 10px but caused margin collision so increased to fix flow*/
   display: block;
 }
 

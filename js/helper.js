@@ -55,6 +55,14 @@ var HTMLonlineSchool = ' - %data%</a>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
 var HTMLonlineURL = '<br><a href="#">%data%</a>';
 
+// additional coursework vars added by J Sherman
+//
+var HTMLcourseWork = '<h3>Additional Coursework</h3>';
+var HTMLcourseSchoolName = ' - %data%</a>';
+var HTMLcourseName = '<a href="#">%data%';
+var HTMLcourseDates = '<div class="date-text">%data%</div>';
+var HTMLcourseURL = '<br><a href="#">%data%</a>';
+
 var internationalizeButton = '<button id="internationalize">Internationalize</button>';
 var googleMap = '<div id="map"></div>';
 

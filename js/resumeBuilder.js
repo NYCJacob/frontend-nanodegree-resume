@@ -74,37 +74,48 @@ var education = {
             "title"  : "Front End Developer NanoDegree",
             "school"  :  "Udacity",
             "dates"  :  2016,
-            "url"   :   "udacity.com"
+            "url"   :   "http://www.udacity.com"
         },
         {
-            "title" : "Real World Linux",
-            "school"  :  "Linux Foundation",
+            "title" : "Linux in the Real World",
+            "school"  :  "Linux Training Academy",
             "dates"  :  2016,
-            "url"  :  "https://www.linuxtrainingacademy.com"
+            "url"  :  "https://courses.linuxtrainingacademy.com/course/linux-in-the-real-world/"
+        }, {
+            "title" : "Essentials of Sytems Administrationj",
+            "school"  :  "Linux Foundation",
+            "dates"  :  "2016",
+            "url"  :  "https://training.linuxfoundation.org/linux-courses/system-administration-training/essentials-of-system-administration"
         },
         {
             "title" : "Linux Systems Administraion",
-            "school"  :  "Linux Foundation",
+            "school"  :  "Linux Training Academy",
             "dates"  :  "2016",
-            "url"  :  "https://www.linuxtrainingacademy.com"
+            "url"  :  "https://courses.linuxtrainingacademy.com/course/learn-linux-administration-and-supercharge-your-career/"
         },
         {
             "title" : "Introduction to Computer Science Using Python",
             "school"  :  "MIT EdX",
             "dates"  :  "2015",
-            "url"  :  "edx.org"
+            "url"  :  "https://courses.edx.org/courses/course-v1:MITx+6.00.1x_6+2T2015/info"
         },
         {
-            "title" : " Learn HTML5 from W3C",
+            "title" : "HTML5 Part1: Coding Essentials and Best Practices",
             "school"  :  "W3C EdX",
             "dates"  :  "2015",
-            "url"  :  "edx.org"
+            "url"  :  "https://courses.edx.org/courses/course-v1:W3Cx+HTML5.1x+2T2016/info"
+        },
+        {
+            "title" : "HTML5 Part 2: Advanced Techniques for Designing HTML5 Apps",
+            "school"  :  "W3C EdX",
+            "dates"  :  "2015",
+            "url"  :  "https://courses.edx.org/courses/course-v1:W3Cx+HTML5.2x+4T2015/info"
         },
         {
             "title" : "Introduction to Computer Science Using C",
             "school"  :  "Harvard EdX",
             "dates"  :  "2014",
-            "url"  :  "edx.org"
+            "url"  :  "https://www.edx.org/course/introduction-computer-science-harvardx-cs50x"
         }
     ],
     "otherCourseWork" : [
@@ -112,13 +123,13 @@ var education = {
             "title"     : "Javscript Intensive",
             "school"    :  "New York University School of Professional Studies",
             "dates"     : "2014",
-            "url"       : "http://www.sps.nyu.edu/"
+            "url"       : "http://oit2.scps.nyu.edu/~sultans/javascript/"
         },
         {
             "title"     : "Apache Web Server",
             "school"    :  "New York University School of Professional Studies",
             "dates"     : "2014",
-            "url"       : "http://www.sps.nyu.edu/"
+            "url"       : "https://www.sps.nyu.edu/professional-pathways/courses/"
         }
     ]
 }
@@ -141,16 +152,19 @@ education.display =  function(){
 
     function addOnlineCourse(course) {
         var title = HTMLonlineTitle.replace('%data%', course.title);
+        title = title.replace('#', course.url);
         var school = HTMLonlineSchool.replace('%data%', course.school);
         var dates = HTMLonlineDates.replace('%data%', course.dates);
-        var url = HTMLonlineURL.replace('%data%', course.url);
+
         $('#education').append(HTMLschoolStart);
 
         $('.education-entry:last').append(title + school);
 
         $('.education-entry:last').append(dates);
+        $('.education-entry:last').append('<br>');
 
-        $('.education-entry:last').append(url);
+        // url moved to link in course name
+        // $('.education-entry:last').append(url);
     }
 
     // other course work
@@ -159,14 +173,17 @@ education.display =  function(){
 
     function addCourse(course) { // title school dates url
         var formattedCourseName = HTMLcourseName.replace('%data%', course.title);
+        formattedCourseName = formattedCourseName.replace('#', course.url)
         var formattedCourseSchool = HTMLcourseSchoolName.replace('%data%', course.school);
         var formattedCourseDate = HTMLcourseDates.replace('%data%', course.dates);
-        var formattedCourseURL = HTMLcourseURL.replace('%data%', course.url);
+        //this removed to add link to course name instead
+        // var formattedCourseURL = HTMLcourseURL.replace('%data%', course.url);
 
         $('#education').append(HTMLschoolStart);
         $('.education-entry:last').append(formattedCourseName + formattedCourseSchool);
         $('.education-entry:last').append(formattedCourseDate);
-        $('.education-entry:last').append(formattedCourseURL);
+        $('.education-entry:last').append('<br>');
+        // $('.education-entry:last').append(formattedCourseURL);
     }
 }
 

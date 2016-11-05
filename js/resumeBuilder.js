@@ -134,18 +134,35 @@ var education = {
     ]
 }
 
+
 education.display =  function(){
-    for (school in education.schools){
-        var formattedSchoolName = HTMLschoolName.replace('%data%', education.schools[school].name);
-        var formattedSchoolLocation = HTMLschoolLocation.replace('%data%', education.schools[school].location);
-        var formattedSchoolDegree = HTMLschoolDegree.replace('%data%', education.schools[school].degree);
-        var formattedSchoolMajor = HTMLschoolMajor.replace('%data%', education.schools[school].major);
-        var formattedSchoolDates = HTMLschoolDates.replace('%data%', education.schools[school].dates);
+    // for (school in education.schools){
+    //     var formattedSchoolName = HTMLschoolName.replace('%data%', education.schools[school].name);
+    //     var formattedSchoolLocation = HTMLschoolLocation.replace('%data%', education.schools[school].location);
+    //     var formattedSchoolDegree = HTMLschoolDegree.replace('%data%', education.schools[school].degree);
+    //     var formattedSchoolMajor = HTMLschoolMajor.replace('%data%', education.schools[school].major);
+    //     var formattedSchoolDates = HTMLschoolDates.replace('%data%', education.schools[school].dates);
+    //     $('#education').append(HTMLschoolStart);
+    //     $('.education-entry:last').append(formattedSchoolName + formattedSchoolDegree);
+    //     $('.education-entry:last').append(formattedSchoolDates + formattedSchoolLocation);
+    //     $('.education-entry:last').append(formattedSchoolMajor);
+    // }
+
+    // schools using foreach
+    education.schools.forEach(addSchool);
+    function addSchool(school) {
+        var formattedSchoolName = HTMLschoolName.replace('%data%', school.name);
+        var formattedSchoolLocation = HTMLschoolLocation.replace('%data%', school.location);
+        var formattedSchoolDegree = HTMLschoolDegree.replace('%data%', school.degree);
+        var formattedSchoolMajor = HTMLschoolMajor.replace('%data%', school.major);
+        var formattedSchoolDates = HTMLschoolDates.replace('%data%', school.dates);
         $('#education').append(HTMLschoolStart);
         $('.education-entry:last').append(formattedSchoolName + formattedSchoolDegree);
         $('.education-entry:last').append(formattedSchoolDates + formattedSchoolLocation);
         $('.education-entry:last').append(formattedSchoolMajor);
     }
+
+
     // online courses using foreach
     $('#education').append(HTMLonlineClasses);
     education.onlineCourses.forEach(addOnlineCourse);

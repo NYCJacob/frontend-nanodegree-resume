@@ -1,0 +1,27 @@
+{
+  "name": "lesson4-portfolio-project",
+  "version": "1.0.0",
+  "description": "Portfolio Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Udacity",
+    "portfolio",
+    "project"
+  ],
+  "author": "Jacob",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-cssmin": "^1.0.2",
+    "grunt-contrib-imagemin": "^1.0.1",
+    "grunt-html-validation": "^0.1.18",
+    "grunt-pagespeed": "^2.0.1",
+    "grunt-responsive-images": "^0.1.9",
+    "grunt-w3c-html-validation": "^0.1.8",
+    "load-grunt-tasks": "^3.5.2"
+  }
+}

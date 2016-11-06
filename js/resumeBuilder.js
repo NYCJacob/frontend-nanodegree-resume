@@ -13,7 +13,7 @@ var bio = {
     },
     "skills" : ["JavaScript", "PHP/MySQL", "Linux Systems Administration"],
     "welcome" : "Let me handle the matrix and free your mind to do other stuff!",
-    "bioImg" : "http://placehold.it/300"
+    "bioImg" : "images/fry-320.jpg"
 }
 
 //  header
@@ -34,10 +34,12 @@ formattedGithub = formattedGithub.replace('#', bio.contacts.github);
 
 // var formattedLinkedIn = HTMLlinkedIn.replace('%data%', bio.contacts.linkedIn);
 var formattedLinkedIn = HTMLlinkedIn.replace('%data%', '');
+formattedLinkedIn = formattedLinkedIn.replace('#', bio.contacts.linkedIn);
 
 var formattedLocation = HTMLlocation.replace('%data%', bio.contacts.location);
 var formattedSubheading = formattedEmail + formattedLinkedIn + formattedTwitter + formattedGithub + formattedLocation;
 $('#topContacts').append(formattedSubheading);
+$('#footerContacts').append(formattedSubheading);
 
 // welcome message
 var formattedWelcome = HTMLwelcomeMsg.replace('%data%', bio.welcome);

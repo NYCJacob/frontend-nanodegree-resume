@@ -43,6 +43,9 @@ li .zocial-email {
 li .zocial-github {
     margin-top: 0em;
 }
+li .zocial-linkedin {
+    margin-top: 0em;
+}
 li .zocial-pinboard {
     margin-top: 0em;
 }
@@ -50,6 +53,10 @@ li .zocial-pinboard {
 #skills-h3 {
     padding-bottom: 0em;
     color: #FF0000;  /*overrides color in style.css */
+}
+
+#lets-connect-h2{
+    color: #FF0000;
 }
 
 #skills {

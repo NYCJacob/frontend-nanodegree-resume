@@ -26,7 +26,9 @@ var HTMLtwitter = '<li class="flex-item" xmlns="http://www.w3.org/1999/html">' +
 var HTMLgithub = '<li class="flex-item "> ' +
     '<a href="#" class="zocial-github green-text"> %data%</a> ' +
     '</li>';
-var HTMLlinkedIn = '<li class="flex-item "><span class="green-text zocial-linkedin"></span><span class="white-text">%data%</span></li>';
+var HTMLlinkedIn = '<li class="flex-item ">' +
+    '<a href="#" class="zocial-linkedin green-text"> %data%</a> ' +
+    '</li>';
 var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
 // var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</span><span class="white-text">%data%</span></li>';
 var HTMLlocation = '<li class="flex-item"><span class="zocial-pinboard green-text"> %data%</span></li>';
@@ -123,7 +125,8 @@ function initializeMap() {
   var locations;
 
   var mapOptions = {
-    disableDefaultUI: true
+    // disableDefaultUI: true
+    disableDefaultUI: false
   };
 
   /*
@@ -184,16 +187,18 @@ function initializeMap() {
       title: name
     });
 
+    var overlayContent =  '<h3>' + name + '</h3>';
     // infoWindows are the little helper windows that open when you click
     // or hover over a pin on a map. They usually contain more information
     // about a location.
     var infoWindow = new google.maps.InfoWindow({
-      content: name
+      content: overlayContent
     });
 
     // hmmmm, I wonder what this is about...
     google.maps.event.addListener(marker, 'click', function() {
       // your code goes here!
+      infoWindow.open(map, marker);
     });
 
     // this is where the pin actually gets added to the map.

@@ -28,8 +28,12 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 
  <script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
 
-  <!--d3 library link-->
-  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <!-- Load c3.css -->
+  <link href="bower_components/c3/c3.css" rel="stylesheet" type="text/css">
+
+  <!-- Load d3.js and c3.js -->
+  <script src="bower_components/d3/d3.min.js" charset="utf-8"></script>
+  <script src="bower_components/c3/c3.min.js"></script>
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
@@ -55,13 +59,15 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     <div id="education" class="gray">
       <h2>Education</h2>
     </div>
-    <div id="mapDiv">
+    <div id="mapDiv" class="clear-fix">
       <h2>Some of the Places Where I've Lived and Worked</h2>
     </div>
 
-    <div id="chart">
+    <div id="chart-container" class="clear-fix">
+      <div id="chart"></div>
 
     </div>
+
 
     <footer id="lets-connect" class="dark-gray">
       <h2 id="lets-connect-h2" class="white center-text red-text">Let's Connect</h2>
@@ -72,12 +78,11 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 
   <script src="js/jQuery.js"></script>
 
-  <!-- More on helper.js in the class -->
   <script src="js/helper.js"></script>
 
   <script src="js/resumeBuilder.js"></script>
 
-  <script src="js/d3script.js"></script>
+  <script src="js/pie-chart.js"></script>
 
 </body>
 </html>

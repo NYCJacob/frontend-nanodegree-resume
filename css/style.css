@@ -174,9 +174,10 @@ img {
   padding: 10px;
 }
 
-span {
-  padding: 5px;
-}
+/*the span padding conflicted with jqueryui for the accordion*/
+/*span {*/
+  /*padding: 5px;*/
+/*}*/
 
 #lets-connect {
   text-align: center;

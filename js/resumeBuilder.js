@@ -321,6 +321,11 @@ $('#mapDiv').append(googleMap);
 //     logClicks(loc.pageX, loc.pageY);
 // });
 
+// jquery accordion init
+$( "#accordion" ).accordion({
+    active: 0,
+    heightStyle: "content"
+});
 
 // this code remove empty elements
 if(document.getElementsByClassName('flex-item').length === 0) {

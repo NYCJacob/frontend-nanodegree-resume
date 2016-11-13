@@ -21,8 +21,9 @@ Cameron Pittman, Udacity Course Developer
   <link href="css/style.css" rel="stylesheet">
   <link href="css/myStyles.css" rel="stylesheet">
 
-<!--load jquery ui-->
-  <link href="jquery-ui-1.12.1.custom.scoped/jquery-ui.css">
+  <!--load jquery ui-->
+  <link href="jquery-ui-1.12.1.custom/jquery-ui.css">
+
   <!-- Load c3.css -->
   <link href="bower_components/c3/c3.css" rel="stylesheet" type="text/css">
 
@@ -37,28 +38,28 @@ Cameron Pittman, Udacity Course Developer
 </head>
 <body>
   <div id="main">
-    <!--
-    Everything from here to the <script> tag below is the skeleton of your
-    website. Your code will add information to each of the sections of the
-    resume below. You can pretty easily figure out what each section will
-    display by looking at the id or at what's written between the <h2> tags.
-    -->
     <div id="header" class="center-content clear-fix">
       <ul id="topContacts" class="flex-box"></ul>
     </div>
 
     <div style="clear: both;"></div>
-    <div id="workExperience" class="gray">
-      <h2>Work Experience</h2>
-    </div>
-    <div id="projects">
-      <h2>Projects</h2>
-    </div>
-    <div id="education" class="gray">
-      <h2>Education</h2>
-    </div>
-    <div id="mapDiv" class="clear-fix">
-      <h2>Some of the Places Where I've Lived and Worked</h2>
+    <div id="accordion">
+        <h3>Work Experience</h3>
+          <div id="workExperience" class="gray">
+            <!--<h2>Work Experience</h2>-->
+          </div>
+        <h3>Projects</h3>
+          <div id="projects">
+            <!--<h2>Projects</h2>-->
+          </div>
+        <h3>Education</h3>
+          <div id="education" class="gray">
+            <!--<h2>Education</h2>-->
+          </div>
+        <h3>Some of the Places Where I've Lived</h3>
+          <div id="mapDiv" class="clear-fix">
+            <!--<h2>Some of the Places Where I've Lived and Worked</h2>-->
+          </div>
     </div>
 
     <div id="chart-container" class="clear-fix">
@@ -74,8 +75,8 @@ Cameron Pittman, Udacity Course Developer
     </footer>
   </div>
 
-  <script src="js/jQuery.js"></script>
-
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
   <script src="js/helper.js"></script>
 
   <script src="js/resumeBuilder.js"></script>

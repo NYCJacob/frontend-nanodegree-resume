@@ -324,7 +324,10 @@ $('#mapDiv').append(googleMap);
 // jquery accordion init
 $( "#accordion" ).accordion({
     active: 0,
-    heightStyle: "content"
+    heightStyle: "content",
+    classes : {
+        "ui-state-default" : "color: black"
+    }
 });
 
 // this code remove empty elements

@@ -59,6 +59,12 @@ if (bio.skills.length !== 0){
     }
 }
 
+work.display = function(){
+
+}
+
+work.display();
+
 var education = {
     "schools" : [
         {

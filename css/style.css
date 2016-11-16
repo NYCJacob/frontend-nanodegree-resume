@@ -218,7 +218,8 @@ img {
 
 #mapDiv {
   height: 400px;
-  width: 100%;
+  /*removed width because map was overflowing accordion*/
+  /*width: 100%;*/
   padding-bottom: 5%;
 }
 

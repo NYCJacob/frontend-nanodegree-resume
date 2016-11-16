@@ -59,11 +59,6 @@ if (bio.skills.length !== 0){
     }
 }
 
-work.display = function(){
-
-}
-
-work.display();
 
 var education = {
     "schools" : [
@@ -332,7 +327,7 @@ $( "#accordion" ).accordion({
     active: 0,
     heightStyle: "content",
     classes : {
-        "ui-state-default" : "color: black"
+        "ui-accordion-content" : "jqui-mobile-padding"
     }
 });
 

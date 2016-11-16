@@ -7,9 +7,13 @@ var chart = c3.generate({
     data: {
         columns: [
             ['Javascript', 10],
-            ['c', 2],
-            ['linux' , 5],
-            ['css', 2]
+            ['C', 2],
+            ['Linux' , 5],
+            ['CSS', 3],
+            ['Java', 2],
+            ['Python', 1],
+            ['PHP', 2],
+            ['Other', 5]
         ],
         type: 'pie'
     }
@@ -18,6 +22,6 @@ var chart = c3.generate({
 // add header to chart - method within c3 it seems
 var chartTitle = "Computer Books on My Shelf";
 
-var h1Ele = document.createElement('h1');
-h1Ele.append(chartTitle);
-$('#chart-container').prepend(h1Ele);
+var h2Ele = document.createElement('h2');
+h2Ele.append(chartTitle);
+$('#chart-container').prepend(h2Ele);

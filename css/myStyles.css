@@ -15,9 +15,39 @@ h6 {
     font-family: 'Cormorant Garamond', serif;
 }
 
-#role{
-    color: white;
+#main {
+    max-width: 960px;
 }
+
+/*dynamically size chart h2 element for mobile*/
+@media screen and (max-device-width: 799px){
+    #chart-container>h2 {
+        font-size: 6vw;
+    }
+}
+
+
+/*this is to style role and control line break and different screen sizes*/
+@media all and (min-device-width: 600px) {
+    #role {
+        display: inline;
+        color:white;
+        padding: 10px .5%;
+    }
+}
+
+@media all and (max-device-width: 599px) {
+    #role {
+        color: white;
+        padding-bottom: .5%;
+        padding-top: .5%;
+    }
+    #topContacts {
+        padding-top: .5%;
+        padding-bottom: .5%;
+    }
+}
+
 
 @media only screen and (max-width: 749px) {
     .zocial-pinboard {
@@ -79,4 +109,9 @@ li .zocial-pinboard {
     background: -webkit-linear-gradient(top, #0e0e0e 0%,#7d7e7d 99%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to bottom, #0e0e0e 0%,#7d7e7d 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0e0e0e', endColorstr='#7d7e7d',GradientType=0 ); /* IE6 */
+}
+
+/*jquery decreased padding for mobile via custom class call on accordion*/
+.jqui-mobile-padding {
+    padding: .1em 1em !important;
 }

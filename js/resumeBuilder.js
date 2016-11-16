@@ -1,4 +1,4 @@
-
+// BIO var and display
 var bio = {
     "name" : "Jacob Sherman",
     "role" : "Full Stack Developer",
@@ -16,48 +16,55 @@ var bio = {
     "bioImg" : "images/fry-320.jpg"
 }
 
+bio.display = function () {
+
 //  header
-var  FormattedheaderName = HTMLheaderName.replace('%data%', bio.name);
-var formattedRole = HTMLheaderRole.replace('%data%', bio.role);
-$("#header").prepend(FormattedheaderName + formattedRole);
+    var  FormattedheaderName = HTMLheaderName.replace('%data%', bio.name);
+    var formattedRole = HTMLheaderRole.replace('%data%', bio.role);
+    $("#header").prepend(FormattedheaderName + formattedRole);
 
 // sub heading- contact info
-var formattedEmail = HTMLemail.replace('%data%', bio.contacts.email);
-formattedEmail = formattedEmail.replace('#', bio.contacts.email);
+    var formattedEmail = HTMLemail.replace('%data%', bio.contacts.email);
+    formattedEmail = formattedEmail.replace('#', bio.contacts.email);
 
-var formattedTwitter = HTMLtwitter.replace('%data%', '');
-formattedTwitter = formattedTwitter.replace('#', bio.contacts.twitterLink);
+    var formattedTwitter = HTMLtwitter.replace('%data%', '');
+    formattedTwitter = formattedTwitter.replace('#', bio.contacts.twitterLink);
 
 // var formattedGithub = HTMLgithub.replace('%data%', bio.contacts.github);
-var formattedGithub = HTMLgithub.replace('%data%', '');
-formattedGithub = formattedGithub.replace('#', bio.contacts.github);
+    var formattedGithub = HTMLgithub.replace('%data%', '');
+    formattedGithub = formattedGithub.replace('#', bio.contacts.github);
 
 // var formattedLinkedIn = HTMLlinkedIn.replace('%data%', bio.contacts.linkedIn);
-var formattedLinkedIn = HTMLlinkedIn.replace('%data%', '');
-formattedLinkedIn = formattedLinkedIn.replace('#', bio.contacts.linkedIn);
+    var formattedLinkedIn = HTMLlinkedIn.replace('%data%', '');
+    formattedLinkedIn = formattedLinkedIn.replace('#', bio.contacts.linkedIn);
 
-var formattedLocation = HTMLlocation.replace('%data%', bio.contacts.location);
-var formattedSubheading = formattedEmail + formattedLinkedIn + formattedTwitter + formattedGithub + formattedLocation;
-$('#topContacts').append(formattedSubheading);
-$('#footerContacts').append(formattedSubheading);
+    var formattedLocation = HTMLlocation.replace('%data%', bio.contacts.location);
+    var formattedSubheading = formattedEmail + formattedLinkedIn + formattedTwitter + formattedGithub + formattedLocation;
+    $('#topContacts').append(formattedSubheading);
+    $('#footerContacts').append(formattedSubheading);
 
 // welcome message
-var formattedWelcome = HTMLwelcomeMsg.replace('%data%', bio.welcome);
-$("#header").append(formattedWelcome);
+    var formattedWelcome = HTMLwelcomeMsg.replace('%data%', bio.welcome);
+    $("#header").append(formattedWelcome);
 
 // pic and skills
-var formattedImage = HTMLbioPic.replace('%data%', bio.bioImg);
-$('#header').append(formattedImage);
+    var formattedImage = HTMLbioPic.replace('%data%', bio.bioImg);
+    $('#header').append(formattedImage);
 
 // check if skill exist then append
-if (bio.skills.length !== 0){
-    $("#header").append(HTMLskillsStart);
-    var skillsLength = bio.skills.length;
-    for (var i in bio.skills) {
-        var skillFormatted =  HTMLskills.replace('%data%', bio.skills[i]);
-        $("#skills").append(skillFormatted);
+    if (bio.skills.length !== 0){
+        $("#header").append(HTMLskillsStart);
+        var skillsLength = bio.skills.length;
+        for (var i in bio.skills) {
+            var skillFormatted =  HTMLskills.replace('%data%', bio.skills[i]);
+            $("#skills").append(skillFormatted);
+        }
     }
-}
+};
+
+bio.display();
+
+// education var and display
 
 
 var education = {
@@ -233,26 +240,32 @@ var work = {
     ]
 }
 
-work.jobs.forEach(addJob);
+work.display = function(){
+    work.jobs.forEach(addJob);
 
-function addJob(job) {
-    $("#workExperience").append(HTMLworkStart);
-    var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer);
-    // add link to href
-    formattedEmployer = formattedEmployer.replace('#', job.employerLink)
-    var formattedTitle = HTMLworkTitle.replace("%data%", job.title);
-    var formattedEmployerTitle = formattedEmployer + formattedTitle;
-    $(".work-entry:last").append(formattedEmployerTitle);
+    function addJob(job) {
+        $("#workExperience").append(HTMLworkStart);
+        var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer);
+        // add link to href
+        formattedEmployer = formattedEmployer.replace('#', job.employerLink)
+        var formattedTitle = HTMLworkTitle.replace("%data%", job.title);
+        var formattedEmployerTitle = formattedEmployer + formattedTitle;
+        $(".work-entry:last").append(formattedEmployerTitle);
 
-    var formattedWorkDates = HTMLworkDates.replace("%data%", job.dates);
-    $(".work-entry:last").append(formattedWorkDates);
+        var formattedWorkDates = HTMLworkDates.replace("%data%", job.dates);
+        $(".work-entry:last").append(formattedWorkDates);
 
-    var formattedLocation = HTMLworkLocation.replace("%data%", job.location);
-    $(".work-entry:last").append(formattedLocation);
+        var formattedLocation = HTMLworkLocation.replace("%data%", job.location);
+        $(".work-entry:last").append(formattedLocation);
 
-    var formattedDesc = HTMLworkDescription.replace("%data%", job.description);
-    $(".work-entry:last").append(formattedDesc);
+        var formattedDesc = HTMLworkDescription.replace("%data%", job.description);
+        $(".work-entry:last").append(formattedDesc);
+    }
 }
+
+work.display();
+
+
 
 
 var projects = {
@@ -293,9 +306,10 @@ var projects = {
     ]
 }
 
-projects.projects.forEach(addProject);
+projects.display = function () {
+    projects.projects.forEach(addProject);
 
-function addProject(project) {
+    function addProject(project) {
         $("#projects").append(HTMLprojectStart);
         var formattedTitle = HTMLprojectTitle.replace('%data%', project.title);
         $(".project-entry:last").append(formattedTitle);
@@ -312,7 +326,9 @@ function addProject(project) {
                 $(".project-entry:last").append(formattedImages);
             }
         }
+    }
 }
+projects.display();
 
 
 $('#mapDiv').append(googleMap);

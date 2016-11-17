@@ -15,8 +15,10 @@ h6 {
     font-family: 'Cormorant Garamond', serif;
 }
 
+
 #main {
     max-width: 960px;
+    margin: 0 auto;
 }
 
 /*dynamically size chart h2 element for mobile*/

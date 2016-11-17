@@ -17,7 +17,7 @@ var HTMLheaderName = '<h1 id="name">%data%</h1>';
 var HTMLheaderRole = '<h3 id="role">%data%</h3><hr>';
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
-var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
+var HTMLmobile = '<li class="flex-item"><span class="green-text">mobile </span><span class="green-text">%data%</span></li>';
 var HTMLemail = '<li class="flex-item">' +
     '<a href="mailto:#" class="green-text zocial-email"> %data%</a> ' +
     '</li>';

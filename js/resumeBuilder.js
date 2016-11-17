@@ -3,7 +3,7 @@ var bio = {
     "name" : "Jacob Sherman",
     "role" : "Full Stack Developer",
     "contacts" : {
-        "mobile" : "917-555-0208",
+        "mobile" : "917-555-1234",
         "email" : "jacob@jbsherman.com",
         "twitterHandle" : "@JSherman_Esq",
         "twitterLink"   : "https://twitter.com/JSherman_Esq",
@@ -12,53 +12,53 @@ var bio = {
         "location" : "New York, NY"
     },
     "skills" : ["JavaScript", "PHP/MySQL", "Linux Systems Administration"],
-    "welcome" : "Let me handle the matrix and free your mind to do other stuff!",
-    "bioImg" : "images/fry-320.jpg"
-}
+    "welcomeMessage" : "Let me handle the matrix and free your mind to do other stuff!",
+    "biopic" : "images/fry-320.jpg"
+};
 
 bio.display = function () {
-
-//  header
-    var  FormattedheaderName = HTMLheaderName.replace('%data%', bio.name);
+    //  header
+    var  formattedheaderName = HTMLheaderName.replace('%data%', bio.name);
     var formattedRole = HTMLheaderRole.replace('%data%', bio.role);
-    $("#header").prepend(FormattedheaderName + formattedRole);
+    $("#header").prepend(formattedheaderName + formattedRole);
 
-// sub heading- contact info
+    // sub heading- contact info
     var formattedEmail = HTMLemail.replace('%data%', bio.contacts.email);
     formattedEmail = formattedEmail.replace('#', bio.contacts.email);
+
+    var formattedMobile = HTMLmobile.replace('%data%', bio.contacts.mobile);
 
     var formattedTwitter = HTMLtwitter.replace('%data%', '');
     formattedTwitter = formattedTwitter.replace('#', bio.contacts.twitterLink);
 
-// var formattedGithub = HTMLgithub.replace('%data%', bio.contacts.github);
+    // var formattedGithub = HTMLgithub.replace('%data%', bio.contacts.github);
     var formattedGithub = HTMLgithub.replace('%data%', '');
     formattedGithub = formattedGithub.replace('#', bio.contacts.github);
 
-// var formattedLinkedIn = HTMLlinkedIn.replace('%data%', bio.contacts.linkedIn);
+    // var formattedLinkedIn = HTMLlinkedIn.replace('%data%', bio.contacts.linkedIn);
     var formattedLinkedIn = HTMLlinkedIn.replace('%data%', '');
     formattedLinkedIn = formattedLinkedIn.replace('#', bio.contacts.linkedIn);
 
     var formattedLocation = HTMLlocation.replace('%data%', bio.contacts.location);
-    var formattedSubheading = formattedEmail + formattedLinkedIn + formattedTwitter + formattedGithub + formattedLocation;
-    $('#topContacts').append(formattedSubheading);
-    $('#footerContacts').append(formattedSubheading);
+    var formattedSubheading = formattedEmail + formattedMobile + formattedLinkedIn + formattedTwitter + formattedGithub + formattedLocation;
+    $('#topContacts', '#footerContacts').append(formattedSubheading);
 
-// welcome message
-    var formattedWelcome = HTMLwelcomeMsg.replace('%data%', bio.welcome);
+    // welcome message
+    var formattedWelcome = HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage);
     $("#header").append(formattedWelcome);
 
-// pic and skills
-    var formattedImage = HTMLbioPic.replace('%data%', bio.bioImg);
+    // pic and skills
+    var formattedImage = HTMLbioPic.replace('%data%', bio.biopic);
     $('#header').append(formattedImage);
 
-// check if skill exist then append
+    // check if skill exist then append
     if (bio.skills.length !== 0){
         $("#header").append(HTMLskillsStart);
-        var skillsLength = bio.skills.length;
-        for (var i in bio.skills) {
-            var skillFormatted =  HTMLskills.replace('%data%', bio.skills[i]);
+
+        bio.skills.forEach(function (skill) {
+            var skillFormatted =  HTMLskills.replace('%data%', skill);
             $("#skills").append(skillFormatted);
-        }
+        });
     }
 };
 
@@ -73,7 +73,7 @@ var education = {
             "name"  : "Syracuse University College of Law",
             "location"  : "Syracuse NY",
             "degree": "Law",
-            "major" : "Law",
+            "majors" : ["Law"],
             "dates" :  "1996",
             "url"   :   "http://www.law.syr.edu/"
         },
@@ -81,7 +81,7 @@ var education = {
             "name"  : "Sophia University",
             "location"  : "Tokyo Japan",
             "degree": "Japanese",
-            "major" : "Japanese",
+            "majors" : ["Japanese"],
             "dates" : "1990",
             "url"   : "http://www.sophia.ac.jp/"
         },
@@ -89,7 +89,7 @@ var education = {
             "name" : "University of Massachusetts",
             "location" : "Amherst MA",
             "degree" : "Bachelor of Science",
-            "major"  : "International Business",
+            "majors"  : ["International Business", "Japanese"],
             "dates"  :  "1989",
             "url"   : "http://www.umass.edu/"
         }
@@ -157,7 +157,7 @@ var education = {
             "url"       : "https://www.sps.nyu.edu/professional-pathways/courses/"
         }
     ]
-}
+};
 
 
 education.display =  function(){
@@ -168,7 +168,7 @@ education.display =  function(){
         formattedSchoolName = formattedSchoolName.replace('#', school.url);
         var formattedSchoolLocation = HTMLschoolLocation.replace('%data%', school.location);
         var formattedSchoolDegree = HTMLschoolDegree.replace('%data%', school.degree);
-        var formattedSchoolMajor = HTMLschoolMajor.replace('%data%', school.major);
+        var formattedSchoolMajor = HTMLschoolMajor.replace('%data%', school.majors);
         var formattedSchoolDates = HTMLschoolDates.replace('%data%', school.dates);
         $('#education').append(HTMLschoolStart);
         $('.education-entry:last').append(formattedSchoolName + formattedSchoolDegree);
@@ -203,7 +203,7 @@ education.display =  function(){
 
     function addCourse(course) { // title school dates url
         var formattedCourseName = HTMLcourseName.replace('%data%', course.title);
-        formattedCourseName = formattedCourseName.replace('#', course.url)
+        formattedCourseName = formattedCourseName.replace('#', course.url);
         var formattedCourseSchool = HTMLcourseSchoolName.replace('%data%', course.school);
         var formattedCourseDate = HTMLcourseDates.replace('%data%', course.dates);
         //this removed to add link to course name instead
@@ -215,7 +215,7 @@ education.display =  function(){
         $('.education-entry:last').append('<br>');
         // $('.education-entry:last').append(formattedCourseURL);
     }
-}
+};
 
 education.display();
 
@@ -238,7 +238,7 @@ var work = {
             "description"  : "Managed a 10 person law office, handled heavy caseload, paralegal training and attorney supervision"
         }
     ]
-}
+};
 
 work.display = function(){
     work.jobs.forEach(addJob);
@@ -247,7 +247,7 @@ work.display = function(){
         $("#workExperience").append(HTMLworkStart);
         var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer);
         // add link to href
-        formattedEmployer = formattedEmployer.replace('#', job.employerLink)
+        formattedEmployer = formattedEmployer.replace('#', job.employerLink);
         var formattedTitle = HTMLworkTitle.replace("%data%", job.title);
         var formattedEmployerTitle = formattedEmployer + formattedTitle;
         $(".work-entry:last").append(formattedEmployerTitle);
@@ -261,7 +261,7 @@ work.display = function(){
         var formattedDesc = HTMLworkDescription.replace("%data%", job.description);
         $(".work-entry:last").append(formattedDesc);
     }
-}
+};
 
 work.display();
 
@@ -274,19 +274,19 @@ var projects = {
             "title"  :  "Interactive Google Map",
             "dates"  :  "2014",
             "description"  :  "Created an interactive game using Google Maps, JavaScript and PHP/MySQL as my final project for Harvard’s Edx Introduction to Computer Science course",
-            "imageURL"  : ["images/cs50P8-320.png"]
+            "images"  : ["images/cs50P8-320.png"]
         },
         {
             "title" : "Mariatemildagonzalezesq.com",
             "dates"  : "2013",
             "description"  : "Created fully responsive websites based on designer's mockup, using Bootstrap and custom JavaScript.",
-            "imageURL"   : ["images/mtg-320.png"]
+            "images"   : ["images/mtg-320.png"]
         },
         {
             "title" : "nyrsccasolo.com",
             "dates"  : "2013",
             "description"  : "Updated old website with a responsive design using Bootstrap and integrated scoring results tables, working on integrating site with another even registration site via API.",
-            "imageURL"   : ["images/nyrSccaSolo-320.png"]
+            "images"   : ["images/nyrSccaSolo-320.png"]
         },
         {
             "title"  :  "webesq.net",
@@ -294,17 +294,17 @@ var projects = {
             "description"  : "Developed website that produces legal documents for an uncontested divorce in New York City.  " +
             "Implemented client-side and server side verification using Javascript and PHP/MySQL code to ensure the user files the " +
             "correct documents and produces PDF files ready for court submission.",
-            "imageURL"  : ["images/webEsq-320.png"]
+            "images"  : ["images/webEsq-320.png"]
         },
         {
             "title"  : "ethoshopper.com",
             "dates"  :  "2009 - 2010",
             "description"  :  "Developed OSCommerce/PHP based website selling artisan ceramics from South America. " +
             "The website is no longer available.",
-            "imageURL"  : ["images/ethoShop-320.png"]
+            "images"  : ["images/ethoShop-320.png"]
         }
     ]
-}
+};
 
 projects.display = function () {
     projects.projects.forEach(addProject);
@@ -320,14 +320,14 @@ projects.display = function () {
         var formattedDesc = HTMLprojectDescription.replace('%data%', project.description);
         $(".project-entry:last").append(formattedDesc);
 
-        if (project.imageURL.length > 0) {
-            for (image in project.imageURL){
-                var formattedImages = HTMLprojectImage.replace('%data%',project.imageURL[image]);
-                $(".project-entry:last").append(formattedImages);
-            }
+        if (project.images.length > 0) {
+            project.images.forEach(function (image) {
+                     var formattedImages = HTMLprojectImage.replace('%data%',image);
+                     $(".project-entry:last").append(formattedImages);
+            });
         }
     }
-}
+};
 projects.display();
 
 
